@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Webinar.Contracts\Webinar.Contracts.csproj" />
+    <ProjectReference Include="..\Webinar.Domain\Webinar.Domain.csproj" />
+    <ProjectReference Include="..\Webinar.EventStore\Webinar.EventStore.csproj" />
+    <ProjectReference Include="..\Webinar.Library\Webinar.Library.csproj" />
+    <ProjectReference Include="..\Webinar.Mongo\Webinar.Mongo.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Application\BookingQueryService.cs" />
+    <Compile Remove="Api\BookingQueryApi.cs" />
+  </ItemGroup>
+</Project>
